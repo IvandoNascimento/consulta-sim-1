@@ -14,3 +14,7 @@ end
 Then('vejo  uma mensagem de erro de cpf invalido') do
   assert_selector('li', text: 'Cpf formato ou numero errado')
 end
+
+Then('vejo  uma mensagem de erro de email invalido') do
+  assert_selector('li', text: 'Email is invalid')
+end
