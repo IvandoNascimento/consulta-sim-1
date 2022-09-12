@@ -4,14 +4,12 @@ Feature: Medico
   So that eu nao tenha que fazer isso de forma manual ou presencial
 
 
-  Scenario: remover medico
+  Scenario: cadastrar medico com nome invalido
     Given estou na pagina de medico
-    And o medico com CRM '11223' existe
-    When eu clico em remover o medico com CRM '11223'
-    Then eu vejo uma mensagem que o medico foi apagado com sucesso
+    When eu preencho um medico de nome: 'abc', cpf: '161169850-25', email: 'test@test.com', especialidade: 'Pediatra', crm: '12333' e clico cadastrar
+    Then eu vejo uma mensagem de erro de nome invalido
 
-  Scenario: cadastrar medico
+  Scenario: cadastrar medico com sucesso
     Given estou na pagina de medico
-    When eu preencho os campos de nome 'Emily Souza', cpf '014.945.910-65', email 'emily@gmail.com', especialidade 'Pediatra' e crm '12333'
-    And eu clico em cadastrar novo medico
+    When eu preencho um medico de nome: 'ivan nasc', cpf: '161169850-25', email: 'test@test.com', especialidade: 'Pediatra', crm: '12333' e clico cadastrar
     Then eu vejo uma mensagem que o medico foi cadastrado com sucesso
