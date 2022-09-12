@@ -16,3 +16,6 @@ Then('eu vejo uma mensagem de erro de nome invalido') do
   assert_selector('li', text: 'Nome is too short (minimum is 5 characters)')
 end
 
+Then('eu vejo uma mensagem que o medico foi cadastrado com sucesso') do
+  expect(page).to have_content('Medico was successfully created.')
+end
